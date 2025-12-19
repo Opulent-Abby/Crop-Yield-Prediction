@@ -20,10 +20,11 @@ The project builds on established load-forecasting literature showing that deman
 
 **Procedure and Project Overview**
 ## Collecting the data
+
 ## Data Sources and structure: 
-Median studio price data by zip code in NYC area was obtained from Zillow (this project focuses on the studio rental prices with the assumption that gentrifying area tends to attract younger generations).
-Yelp data (up to 1,000 businesses for each zip code in NYC are) was obtained using Yelp API.
-Demographic data, including education level, racial diversity of the neighborhood, income level, was obtained from the American Community Survey, Census 2016 (by zip code level as well).
+### Storage & Types
+* CSV file, mixed numeric and categorical variables
+* Daily time index
 
 **Variables types and ranges**
 
@@ -34,19 +35,6 @@ Data Cleaning and EDA
 **Demand trends and seasonality**
 
 **Weather and macroeconomic relationships**
-
-
-**Results**
-
-
----
-
-## 3. Data Preparation 
-### Storage & Types
-
-* CSV file, mixed numeric and categorical variables
-* Daily time index
-s
 
 ### Feature Engineering (STRONG)
 
@@ -95,6 +83,8 @@ train = df_model[df["date"] < split_date]
 test  = df_model[df["date"] >= split_date]
 ```
 ---
+
+**Results**
 
 ## 6. Modeling (NEXT STEP — REQUIRED)
 
