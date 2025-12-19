@@ -26,8 +26,6 @@ Improved forecasts can reduce load-shedding risk, optimize generation scheduling
 **Domain Knowledge / Prior Work**
 The project builds on established load-forecasting literature showing that demand is driven by weather, seasonality, and economic growth.
 
-👉 **Action**: Add this as a Markdown section at the top of your notebook.
-
 ---
 
 ## 2. Data Understanding 
@@ -42,8 +40,6 @@ The project builds on established load-forecasting literature showing that deman
 
 * Data source citation (ERA5 for weather, World Bank for GDP/population)
 * Statement that data is **daily, national-level, 2022–2027**
-
-👉 **Action**: Add a short Markdown paragraph summarizing data provenance.
 
 ---
 
@@ -76,8 +72,6 @@ The project builds on established load-forecasting literature showing that deman
 
 Aggregated demand variables derived from the target were removed to prevent target leakage.
 
-👉 **Action**: Add Markdown headings explaining *why* each step was done.
-
 ---
 
 ## 4. Feature Selection (ADD A SHORT JUSTIFICATION)
@@ -95,8 +89,6 @@ Features were selected to balance domain relevance, statistical signal, and leak
 
 * Aggregated or derived demand metrics
 * Static geographic identifiers
-
-👉 **Action**: Add a brief Markdown explanation before `df_model`.
 
 ---
 
@@ -116,9 +108,6 @@ split_date = "2026-01-01"
 train = df_model[df["date"] < split_date]
 test  = df_model[df["date"] >= split_date]
 ```
-
-👉 **Action**: Add a Markdown cell explaining leakage prevention.
-
 ---
 
 ## 6. Modeling (NEXT STEP — REQUIRED)
@@ -140,8 +129,6 @@ Supervised **regression**.
 
 * Random Forest Regressor
 * Gradient Boosting / XGBoost (optional level-up)
-
-👉 **Action**: Implement baseline first, then one tree-based model.
 
 ---
 
@@ -168,8 +155,6 @@ A model that outperforms the baseline on MAE using a leakage-free time split.
 * Feature importance interpretation
 * Error analysis by season
 
-👉 **Action**: Add a table comparing model performance.
-
 ---
 
 ## 8. Deployment (LIGHTWEIGHT — CONCEPTUAL ONLY)
@@ -179,8 +164,6 @@ Results reported via plots, metrics, and feature importance charts.
 
 **Deployment Concept**
 Model could be deployed as a forecasting API or dashboard for planners.
-
-👉 **Action**: Add a short Markdown section (no app required).
 
 ---
 
