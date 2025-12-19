@@ -39,7 +39,7 @@ Aggregated demand variables derived from the target were removed to prevent targ
 
 ---
 
-## 4. Feature Selection 
+## 5. Feature Selection 
 Rationale
 Feature selection balanced domain knowledge, statistical relevance, and methodological rigor. 
 Features were chosen to capture short-term variability, seasonal structure, and long-term demand drivers while avoiding redundant or leakage-prone variables.
