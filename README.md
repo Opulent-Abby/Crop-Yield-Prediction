@@ -1,48 +1,39 @@
 # Using historical demand, weather, calendar, and macroeconomic data, can we predict future daily electricity demand in Kenya?
+
+<img width="1536" height="1024" alt="demand forecasting" src="https://github.com/user-attachments/assets/74e58cfd-f072-4eb0-bcd5-474655daa7f7" />
+
 --
 ## 1. Business Understanding
-Electricity demand forecasting is critical for power system planning and grid reliability. This project uses daily national electricity demand data from Kenya, combined with weather, calendar, and macroeconomic indicators, to predict future electricity demand. The final model captures seasonal and weather-driven demand patterns and provides a realistic forecasting tool for energy planners.
+Electricity demand forecasting is a critical component of power system planning, grid reliability, and energy policy formulation. Kenya’s electricity demand has been growing steadily due to population growth, urbanization, and industrial expansion, while supply planning is increasingly complicated by climate variability and renewable energy integration. Accurate short-term demand forecasts are therefore essential to support operational efficiency and long-term infrastructure investment.
+This project applies machine learning techniques to forecast daily national electricity demand (GWh) in Kenya using historical demand data combined with weather, calendar, and macroeconomic indicators. The work is situated within the energy systems and utilities domain, and the primary stakeholders include electricity utilities, system operators, energy regulators, policymakers, and investors. If deployed in practice, the model could improve load forecasting accuracy, reduce the risk of load shedding, optimize generation scheduling, and support evidence-based energy planning. The project builds on established load forecasting literature demonstrating that electricity demand is strongly influenced by seasonality, weather conditions, and long-term economic trends.
 
-## Rationale (business value)
-This prediction is valuable for:
-**Power system planning and grid stability**
-**Load forecasting for utilities and energy regulators**
-**Reducing generation shortfalls and excess capacity costs**
-
-**Domain / Industry**
-Energy systems, power utilities, and public-sector energy planning.
-**Target Audience**
-Energy utilities, system operators, regulators, and policy planners.
-**Real-World Impact**
-Improved forecasts can reduce load-shedding risk, optimize generation scheduling, and inform long-term infrastructure investment.
-**Domain Knowledge / Prior Work**
-The project builds on established load-forecasting literature showing that demand is driven by weather, seasonality, and economic growth.
-
-
-**Procedure and Project Overview**
-## Collecting the data
-
+## 2. Data Understanding
 ## Data Sources and structure: 
-### Storage & Types
-* CSV file, mixed numeric and categorical variables
-* Daily time index
+The dataset is a consolidated national-level daily time series covering January 2022 to June 2024, stored as a CSV file. 
+### The target variable is: 
+ demand_gwh_daily: Daily national electricity demand (GWh)
+ 
+### Explanatory variables include:
+Weather variables: temperature, rainfall, humidity (synthetic but realistic)
+Calendar features: date, weekday, weekend indicator, season
+Macroeconomic indicators: GDP (current USD billions), population
+Geographic identifiers: latitude, longitude (static)
+The dataset contains 2,191 daily observations and 21 variables. All data are publicly accessible or derived from public sources.
 
-**Variables types and ranges**
+## 3. Data Preparation 
 
-**Data Cleaning and EDA**
-Data Cleaning and EDA
-- How were the missing values treated
+Data Cleaning
+Converted the date column to date time format and sorted observations chronologically.
+Verified the absence of duplicate records.
+Identified missing values primarily in forecast uncertainty columns, which were excluded from modeling.
+Stripped column name whitespace and standardized formats.
 
-**Demand trends and seasonality**
+## 4. Feature Engineering
 
-**Weather and macroeconomic relationships**
-
-### Feature Engineering
-
-* Calendar features (day, week, day of year)
-* Cyclical encoding (month, weekday)
-* Weather variables
-* Macroeconomic variables
+To prepare the data for time-series–aware machine learning models, several features were engineered:
+Calendar features: day, week of year, day of year
+Cyclical encoding: sine and cosine transformations of month and weekday
+Binary indicators: weekend vs weekday
 
 ### Leakage Prevention 
 Aggregated demand variables derived from the target were removed to prevent target leakage.
@@ -50,106 +41,33 @@ Aggregated demand variables derived from the target were removed to prevent targ
 ---
 
 ## 4. Feature Selection 
-**Rationale**
-Features were selected to balance domain relevance, statistical signal, and leakage prevention.
+Rationale
+Feature selection balanced domain knowledge, statistical relevance, and methodological rigor. 
+Features were chosen to capture short-term variability, seasonal structure, and long-term demand drivers while avoiding redundant or leakage-prone variables.
+Final Feature Set included:
+1. Calendar and seasonal indicators
+2. Weather variables (temperature, rainfall, humidity)
+3. GDP and population (long-term trend capture)
 
-**Final Features Include**:
+Excluded:
+ Aggregated or target-derived demand metrics
+ Static geographic identifiers
+ Forecast uncertainty bound
 
-* Calendar and seasonal indicators
-* Weather variables
-* GDP and population (long-term trend capture)
 
-**Excluded**:
+5. Time-Series–Aware Train/Test Split
 
-* Aggregated or derived demand metrics
-* Static geographic identifiers
 
----
+## 6. Modeling
 
-## 5. Time-Series–Aware Train/Test Split 
 
-### Why This Matters
+### Supervised regression.
 
-Random splits leak future information in time-series forecasting.
 
-### Implementation
-
-* Train: 2022–2025
-* Test: 2026–2027
-
-```python
-split_date = "2026-01-01"
-train = df_model[df["date"] < split_date]
-test  = df_model[df["date"] >= split_date]
-```
----
-
-**Results**
-
-## 6. Modeling 
-
-### Problem Type
-
-Supervised **regression**.
-
-### Target Variable
-
-`demand_gwh_daily`
-
-### Baseline Model 
-
-* Naive baseline (yesterday = today) **or**
-* Linear Regression
-
-### Final Model (RECOMMENDED)
-
-* Random Forest Regressor
-* Gradient Boosting / XGBoost (optional level-up)
 
 ---
 
-## 7. Evaluation 
-
-### Metrics
-
-* MAE (primary)
-* RMSE
-* R² (optional)
-
-### Evaluation Strategy
-
-* Evaluate only on future (test) data
-* Compare baseline vs final model
-
-### MVP Definition
-
-A model that outperforms the baseline on MAE using a leakage-free time split.
-
-### Stretch Goals
-
-* Hyperparameter tuning
-* Feature importance interpretation
-* Error analysis by season
-
----
-
-## 8. Deployment 
-
-**Reporting**
-Results reported via plots, metrics, and feature importance charts.
-
-**Deployment Concept**
-Model could be deployed as a forecasting API or dashboard for planners.
-
----
-
-
-<img width="1536" height="1024" alt="demand forecasting" src="https://github.com/user-attachments/assets/74e58cfd-f072-4eb0-bcd5-474655daa7f7" />
----
-
-### Next Recommended Step
-
-Implement the **baseline model and evaluation** — this unlocks the rest of the Capstone.
+## Next Recommended Step
 
 
 
