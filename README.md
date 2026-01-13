@@ -6,8 +6,7 @@
 Agricultural production in Kenya is highly sensitive to climatic variability, land-use dynamics, and long-term structural change. Accurate prediction of crop yields and production is therefore essential for food security planning and agricultural policy formulation.
 
 
-![Uploading image.png…]()
-
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/2cc0db2f-1a07-4d94-9482-7cc31c41b579" />
 
 
 ## Data Understanding
