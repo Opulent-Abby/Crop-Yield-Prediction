@@ -7,6 +7,17 @@ Agricultural production in Kenya is highly sensitive to climatic variability, la
 
 ## Data Understanding
 This project applies and compares baseline statistical models and ensemble machine-learning approaches to predict crop production in Kenya using long-term FAOSTAT panel data (1961–2021). Particular emphasis is placed on avoiding target leakage, handling temporal non-stationarity, and evaluating model generalizability using out-of-sample performance.
+### Crop type
+1. Harvested area (hectares)
+2. Yield (tonnes per hectare)
+3. Total production (tonnes)
+
+The dataset spans multiple decades, capturing:
+1. Structural changes in agricultural systems
+2. Policy shifts
+3. Climatic and technological variability
+
+A key challenge in this data is that production is mechanically derived from yield and harvested area, which creates a high risk of target leakage if features are not handled carefully.
 
 ## Data Cleaning
 
