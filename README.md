@@ -2,11 +2,10 @@
 
 <img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/2cc0db2f-1a07-4d94-9482-7cc31c41b579" />
 
-## Business Understanding
+## 1.0 Business Understanding
 Agricultural production in Kenya is highly sensitive to climatic variability, land-use dynamics, and long-term structural change. Accurate prediction of crop yields and production is therefore essential for food security planning and agricultural policy formulation.
 
-
-## Data Understanding
+## 2.0 Data Understanding
 This project applies and compares baseline statistical models and ensemble machine-learning approaches to predict crop production in Kenya using long-term FAOSTAT panel data (1961–2021). Particular emphasis is placed on avoiding target leakage, handling temporal non-stationarity, and evaluating model generalizability using out-of-sample performance.
 ### Crop type
 1. Harvested area (hectares)
@@ -20,7 +19,7 @@ The dataset spans multiple decades, capturing:
 
 A key challenge in this data is that production is mechanically derived from yield and harvested area, which creates a high risk of target leakage if features are not handled carefully.
 
-## Data Cleaning
+## 3.0 Data Cleaning
 
 The following steps were applied:
 
@@ -33,7 +32,7 @@ The following steps were applied:
 7. Feature Transformation and Engineering
 
 
-## Exploratory Data Analysis
+## 4.0 Exploratory Data Analysis
 
 ## Long-Term Yield Growth and Structural Change
 
@@ -92,7 +91,7 @@ The model was configured with regularization to prevent overfitting.
 
 <img width="477" height="278" alt="image" src="https://github.com/user-attachments/assets/62e91343-d2a7-4930-bb26-afc0859efa7a" />
 
-## Model Evaluation and Interpretation
+## 6.0 Model Evaluation and Interpretation
 
 | Model                 | Test R² | MAE (t) | RMSE (t) | Remarks                                        |
 | --------------------- | ------- | ------- | -------- | ---------------------------------------------- |
