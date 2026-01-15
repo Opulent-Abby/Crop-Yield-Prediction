@@ -58,36 +58,36 @@ Figures 4(Scatter plots of Yield vs. Production) confirm strong positive but non
 
 ### 5.1 Linear Regression Baseline (Ordinary least squares)
 
-| Metric | Value     |
-| ------ | --------- |
-| MAE    | 189,411 t |
-| RMSE   | 314,468 t |
-| R²     | 0.596     |
+| Metric         | Value     |
+| ---------------| --------- |
+| MAE            | 189,411 t |
+| RMSE           | 314,468 t |
+| R²             | 0.596     |
 
 ### 5.2 Random Forest Regression
 
-| Metric | Training Set | Test Set  |
-| ------ | ------------ | --------- |
-| MAE    | 120,817 t    | 118,577 t |
-| RMSE   | 395,795 t    | 347,582 t |
-| R²     | 0.6051       | 0.5070    |
+| Metric         | Training Set     | Test Set  |
+| ------------   | ---------------- | --------- |
+| MAE            | 120,817 t        | 118,577 t |
+| RMSE           | 395,795 t        | 347,582 t |
+| R²             | 0.6051           | 0.5070    |
 
 ### Feature Importance:
 
-| Feature           | Importance |
-| ----------------- | ---------- |
-| area_harvested_ha | 88.8%      |
-| year              | 11.2%      |
+| Feature                     | Importance |
+| ----------------------------| ---------- |
+| area_harvested_ha           | 88.8%      |
+| year                        | 11.2%      |
 
 ### 5.3 XGBoost Regression
 An XGBoost model was trained using the same predictors for comparison. 
 The model was configured with regularization to prevent overfitting.
 
-| Metric | Value     |
-| ------ | --------- |
-| MAE    | 115,432 t |
-| RMSE   | 332,985 t |
-| R²     | 0.512     |
+| Metric           | Value     |
+| ------           | --------- |
+| MAE              | 115,432 t |
+| RMSE             | 332,985 t |
+| R²               | 0.512     |
 
 <img width="477" height="278" alt="image" src="https://github.com/user-attachments/assets/62e91343-d2a7-4930-bb26-afc0859efa7a" />
 
