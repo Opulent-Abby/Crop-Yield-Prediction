@@ -22,6 +22,17 @@ A key challenge in this data is that production is mechanically derived from yie
 
 ## Data Cleaning
 
+The following steps were applied:
+
+1. Selection of Relevant Variables
+2. Handling Missing and Inconsistent Values
+3. Standardization and Renaming of Variables
+4. Filtering Based on Data Quality
+5. Construction of Time Series
+6. Outlier Assessment
+7. Feature Transformation and Engineering
+
+
 ## Exploratory Data Analysis
 
 ## Long-Term Yield Growth and Structural Change
