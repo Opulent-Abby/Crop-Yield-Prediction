@@ -21,7 +21,7 @@ Key fields include:
 
 ### 2.2 Scope of the Analysis
 This project focuses exclusively on crop production, retaining only the following elements:
-1. Total Production (tonnes)
+1. Total Production (tonnes) which is the primary prediction target , with yield modeled indirectly through leakage-safe transformations.
 2. Area harvested (hectares)
 3. Yield (hectograms per hectare)
 
@@ -161,9 +161,10 @@ Performance is comparable to Random Forest, indicating robustness of ensemble me
 
    Key Insights:
 1. Ensemble models outperform the linear baseline in capturing non-linearities and interactions
-2. Harvested area is the dominant driver of production, with temporal trends captured via year
+2. The dominance of harvested area reflects the structural identity of agricultural production, reinforcing the importance of leakage control when including yield-derived variables.
 3. Leakage-free modeling substantially reduces apparent performance but improves real-world validity
 4. Predictive power is constrained by limited covariates; incorporation of climate, fertilizer use, soil quality, and policy variables would likely improve forecasts
+5. While the linear model achieves a higher R² by capturing long-term trends, ensemble models reduce absolute prediction error (MAE), indicating superior performance for operational forecasting.
 
 ## 7.0 Final Model Selection
 
